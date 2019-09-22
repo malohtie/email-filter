@@ -40,16 +40,11 @@ else:
 
 print("WRITING RESULT BE PATIENT :)")
 
-def is_valid_email(email):
-	if len(email) > 7:
-		return bool(re.search("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", email))
+valid = list(set(valid))
 
-validemail = 0
 with open(filename, 'w+', encoding='utf-8') as txt:
 	for data in valid:
-		if(is_valid_email(data)):
-			validemail += 1
-			txt.write(data+"\n")
+		txt.write(data+"\n")
 
 
-print('ENDED FOUND :'+str(found)+' VALID EMAILS :'+str(validemail))
+print('ENDED FOUND :'+str(found)+ ' AFTER REMOVING DUPLICATE :'+str(len(valid)))
